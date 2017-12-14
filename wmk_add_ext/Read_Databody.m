@@ -1,9 +1,14 @@
 
 function [acqdata] = Read_Databody()
 globalvar_realtime_wmkextractor;
+
+tempdata =[];
+temp=zeros(Algorithm_Param.N,2);
+
 count = count+1;
 hslider = Hplot(9);
 set(hslider,'value',count/t.TasksToExecute);
+
 if ~feof(readfileID)  
     file_over=0;
     if(ReadInital)
@@ -24,18 +29,21 @@ if ~feof(readfileID)
         chartmp3 =  fread(readfileID,1,'uint8');
         chartmp4 =  fread(readfileID,1,'uint8');
         ReadInital=0;
-        Readdata = fread(readfileID,Algorithm_Param.N*2,'short');
- 
-    else
-  
-        Readdata = fread(readfileID,Algorithm_Param.N*2,'short');
-    
+%         Readdata = fread(readfileID,Algorithm_Param.N*2,'short');
+        Readdata = fread(readfileID,Algorithm_Param.N*2*overtime,'short'); 
+    else  
+%         Readdata = fread(readfileID,Algorithm_Param.N*2,'short');   
+        Readdata = fread(readfileID,Algorithm_Param.N*2*overtime,'short'); 
     end
+    tempdata(:,1) = Readdata(1:2:end-1)/65536;
+    tempdata(:,2) = Readdata(2:2:end)/65536;
+    for j=1:overtime
+       temp(:,:) = temp(:,:) + tempdata(Algorithm_Param.N*(j-1)+1 : Algorithm_Param.N*j,:);
+    end
+    acqdata(:,:) = temp(:,:);
 
-
-acqdata(:,1) = Readdata(1:2:end-1)/65536;
-
-acqdata(:,2) = Readdata(2:2:end)/65536;
+%     acqdata(:,1) = Readdata(1:2:end-1)/65536;
+%     acqdata(:,2) = Readdata(2:2:end)/65536;
 else
     fseek(readfileID,0,'bof');
     ReadInital = 1;
