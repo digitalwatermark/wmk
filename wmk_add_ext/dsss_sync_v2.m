@@ -38,7 +38,7 @@ if strcmpi(state.Sync_State, State_Supported{1})  % initialize and construnct st
     % variables to be set to default values
     Max_Sync_Jitter = default_max_sync_jitter;
     pfa = default_pfa;
-    Threshold =0.01;% norminv((1-pfa)^(1/N),0,1/sqrt(N));
+    Threshold =0.047;% norminv((1-pfa)^(1/N),0,1/sqrt(N));
     Max_Acqtime = default_max_acqtime;
     Max_Failtime = default_max_failtime;
     Rxpn = [];
