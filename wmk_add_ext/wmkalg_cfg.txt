@@ -33,7 +33,7 @@ extract_filter_type = 'hpf';
 extract_fcuts = [2, 3]*1e3;  
 
 % for sync
-default_max_acqtime = 1;
+default_max_acqtime = 2;
 default_max_failtime = 3;
 default_max_sync_jitter =20;
 default_pfa = 0.01;
