@@ -63,4 +63,3 @@ global ReadInital;
 global fileclosename;
 global Timer t;
 global count;
-global overtime;

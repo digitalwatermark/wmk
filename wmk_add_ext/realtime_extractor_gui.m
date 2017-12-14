@@ -69,7 +69,7 @@ globalvar_realtime_wmkextractor;
 
 % Default parameters
 AD_Polar = -1;          %1/-1; -1 for notebook Dell D830
-Fs = 48000;
+Fs = 44100;
 Input_Gain = 1;         % [0, inf)
 
 Key = 0;
@@ -79,7 +79,6 @@ Bit_Format = 'bin';
 N_CharPerLine = 16;
 Phone_Enable = 0;   % 0/1
 readfileID=0;
-overtime=10;
 
 Plot_Enable = [1 1];
 BER_Enable = 0;
@@ -720,7 +719,7 @@ t = timer('Tag', 'timer_count_utl_snd_rdy', 'Period',0.120, 'ExecutionMode','fix
 t.StartDelay = 0;
 % filelenght = wavread(fileclosename,'size');
 [filelenght,Fs] = audioread(fileclosename);
-t.TasksToExecute = floor(length(filelenght(:,1))/(Algorithm_Param.N * overtime));
+t.TasksToExecute = floor(length(filelenght(:,1))/Algorithm_Param.N); 
 set(t,'TimerFcn',{'process_acquireddata_v2',Algorithm_Param.N});
 start(t);
 
