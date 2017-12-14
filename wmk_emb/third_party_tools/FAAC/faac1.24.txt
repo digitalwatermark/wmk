@@ -1,0 +1,79 @@
+
+Freeware Advanced Audio Coder
+FAAC 1.24+ (Jul 14 2004) UNSTABLE
+
+Usage: faac [options] infiles ...
+
+Quality-related options:
+  -q <quality>  Set default variable bitrate (VBR) quantizer quality in percent.
+
+                (default: 100, averages at approx. 120 kbps VBR for a normal
+                stereo input file with 16 bit and 44.1 kHz sample rate; max.
+                value 500, min. 10).
+  -b <bitrate>  Set average bitrate (ABR) to approximately <bitrate> kbps.
+                (max. value 152 kbps/stereo with a 16 kHz cutoff, can be raised
+                with a higher -c setting).
+  -c <freq>     Set the bandwidth in Hz (default: automatic, i.e. adapts
+                maximum value to input sample rate).
+
+Input/output options:
+  -             <stdin/stdout>: If you simply use a hyphen/minus sign instead
+                of an input file name, FAAC can encode directly from stdin,
+                thus enabling piping from other applications and utilities. The
+                same works for stdout as well, so FAAC can pipe its output to
+                other apps such as a server.
+  -o X          Set output file to X (only for one input file)
+                only for one input file; you can use *.aac, *.mp4 or *.m4a as
+                file extension, and the file format will be set automatically
+                to ADTS or MP4).
+  -P            Raw PCM input mode (default: off, i.e. expecting a WAV header;
+                necessary for input files or bitstreams without a header; using
+                only -P assumes the default values for -R, -B and -C in the
+                input file).
+  -R            Raw PCM input sample rate in Hz (default: 44100 Hz, max. 96 kHz)
+
+  -B            Raw PCM input sample size (default: 16, also possible 8, 24, 32
+                bit fixed or float input).
+  -C            Raw PCM input channels (default: 2, max. 33 + 1 LFE).
+  -X            Raw PCM swap input bytes (default: bigendian).
+  -I <C[,LFE]>  Input multichannel configuration (default: 3,4 which means
+                Center is third and LFE is fourth like in 5.1 WAV, so you only
+                have to specify a different position of these two mono channels
+                in your multichannel input files if they haven't been reordered
+                already).
+
+MP4 specific options:
+  -w            Wrap AAC data in MP4 container. (default for *.mp4 and *.m4a)
+  --artist X    Set artist to X
+  --writer X    Set writer/composer to X
+  --title X     Set title/track name to X
+  --genre X     Set genre to X
+  --album X     Set album/performer to X
+  --compilation Mark as compilation
+  --track X     Set track to X (number/total)
+  --disc X      Set disc to X (number/total)
+  --year X      Set year to X
+  --cover-art X Read cover art from file X
+                Supported image formats are GIF, JPEG, and PNG.
+  --comment X   Set comment to X
+
+Expert options, only for testing purposes:
+  --no-tns      Disable coding of TNS, temporal noise shaping.
+  --no-midside  Don't use mid/side coding.
+  --mpeg-vers X Force AAC MPEG version, X can be 2 or 4
+  --obj-type X  AAC object type. (LC (Low Complexity, default), Main or LTP
+                (Long Term Prediction)
+  --shortctl X  Enforce block type (default: both; 1 = long only; 2 = short
+                only).
+  -r            Generate raw AAC bitstream (i.e. without any headers, needed
+                when directly using the AAC bitstream in a MP4 container like
+                e.g. mp4live does; used automatically for MP4).
+
+Documentation:
+  --license     Show the FAAC license.
+  --help        Show this abbreviated help.
+  --long-help   Show complete help.
+
+  More tips can be found in the audiocoding.com Knowledge Base at
+  <http://www.audiocoding.com/wiki/>
+

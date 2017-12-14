@@ -1,0 +1,85 @@
+Happy user support page :
+http://sourceforge.net/donate/index.php?group_id=40316
+
+Copyright 2001 Matt Flax <flatmax at ieee d0t org>
+
+This application stretches and compresses audio without altering the frequency
+character of the audio. For reasonable factors, this application will scale
+audio without altering signal levels or introducing artifacts (in the ideal
+implementation).
+
+It is now possible to get very high quality audio using the FFT based
+implementation.
+
+As of Version 3.0, this implementation of WSOLA is now approximatly six times
+faster then real time (800MHz CPU with coprocessor).
+Operational time on a 24 second stereo sample with a factor of 1.0 :
+Linux takes 6 seconds. It is completely stable.
+Microsoft takes approximatly the same ammout of time. (Using Cygwin GNU*NIX
+translation)
+
+Requirements :
+
+* This program can read alot of file types because of the wrapper to libsndfile :
+http://sourceforge.net/projects/mffmlibsndfilew/
+
+* This program requires an installed version of MFFM multimedia time code
+handling classes. Try :
+http://mffmtimecode.sourceforge.net/
+
+For fast operation (v 3.* only), you will also require MFFM FFTw C++ wrapper.
+Try:
+http://mffmfftwrapper.sourceforge.net/
+
+Audio files are read and written using LibSndFile v1 :
+http://www.zip.com.au/~erikd/libsndfile/
+
+Finally you require a C++ compiler, try :
+http://gcc.gnu.org/install/binaries.html
+http://www.cygwin.com (Microsoft users)
+
+MS Windows BINARY users wiil require the file 'cygwin1.dll'. If it is not
+shipped with this zip package then please try to find it at Cygwin:
+http://www.cygwin.com
+
+My other projects :
+http://sourceforge.net/search/?type_of_search=soft&words=mffm
+
+This project's Home Page :
+http://mffmtimescale.sourceforge.net
+
+MFFM Time Scale Modification for Audio is 2 things :
+a] A compilable program WSOLATest.C which allow you to time stretch and compress
+   mono audio files. Audio files are restricted to be mono 16 bit frame sized.
+b] A set of 2 header files which are the implementation of [1].
+
+For simple use ....
+Type 'make' and compile the program WSOLATest
+
+Run WSOLA like so :
+WSOLA inputFile outputFile factor
+factor = 0.5 for halving the duration of an audio file
+factor = 2.0 for doubling the duration of an audio file
+factor = 1.0 for an identical file.
+
+[1]"An overlap-add technique based on waveform similarity (WSOLA)
+	for high quality time-scale modification of speech",
+	Verhelst, W.; Roelands, M.
+	Acoustics, Speech, and Signal Processing, 1993. ICASSP-93.,
+	1993 IEEE International Conference on On page(s): 554 - 557 vol.2
+	27-30 April 1993 Minneapolis, MN, USA 1993
+	Volume: 2
+	ISBN: 0-7803-0946-4
+	Number of Pages: 5 vol. (652+735+606+559+681)
+	References Cited: 4
+	INSPEC Accession Number: 4771035
+	Abstract:
+	A concept of waveform similarity for tackling the problem of 
+	time-scale modification of speech is proposed. It is worked 
+	out in the context of short-time Fourier transform representations. 
+	The resulting WSOLA (waveform-similarity-based synchronized 
+	overlap-add) algorithm produces high-quality speech output, 
+	is algorithmically and computationally efficient and robust, and 
+	allows for online processing with arbitrary time-scaling factors 
+	that may be specified in a time-varying fashion and can be chosen 
+	over a wide continuous range of values. 

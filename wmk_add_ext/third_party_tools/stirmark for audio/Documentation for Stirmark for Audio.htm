@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://amsl-smb.cs.uni-magdeburg.de/stirmark/doc/ -->
+<HTML><HEAD><TITLE>Documentation for "Stirmark for Audio"</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY>
+<H2>Documentation for "Stirmark for Audio" v0.2</H2>
+<H3>author: <A href="mailto:alang@iti.cs.uni-magdeburg.de">Andreas 
+Lang</A></H3>If you have an older version than this documentation, please 
+download the newest release! <BR>
+<HR>
+
+<H1>at presently, under construction...</H1><BR><BR>
+<H3>This table shows you all attacks and the parameter used from the parameter 
+file.</H3><BR><BR>
+<TABLE cellPadding=2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Attack Name</TH>
+    <TH>Description</TH>
+    <TH>used parameter</TH></TR>
+  <TR>
+    <TD>AddBrumm</TD>
+    <TD>Adds buzz or sinus tone to the sound. The unit of three values are 
+      samples and for the frequency hertz (Hz).</TD>
+    <TD>AddBrummfrom<BR>AddBrummto<BR>AddBrummstep<BR>AddBrummFreq</TD></TR>
+  <TR>
+    <TD>AddDynNoise</TD>
+    <TD>This attack adds a dynamic white noise part to the samples. The given 
+      parameter sets the maximum noise value.</TD>
+    <TD>Dynnoise</TD></TR>
+  <TR>
+    <TD>AddFFTNoise</TD>
+    <TD>Adds white noise to the samples in the FFT room. The value "FFTNoise" 
+      sets the power of this attack to add the noise.</TD>
+    <TD>FFTSIZE<BR>FFTNoise</TD></TR>
+  <TR>
+    <TD>AddNoise</TD>
+    <TD>Adds in differnt steps white noise to the samples. The unity is in 
+      sample values. The value "0" adds nothing and "32768" the absolite 
+      distorted maximum.</TD>
+    <TD>Noisefrom<BR>Noiseto<BR>Noisestep</TD></TR>
+  <TR>
+    <TD>AddSinus</TD>
+    <TD>Adds a sinus signal to the sound file. With this attack you can insert 
+      a disturb signal in the frequency band where the watermark is located. The 
+      unity of the frequency parameter is hertz (Hz) and samples.</TD>
+    <TD>AddSinusFreq<BR>AddSinusAmp</TD></TR>
+  <TR>
+    <TD>Amplify</TD>
+    <TD>Changes the loudness of the audio file. For example the value "100" 
+      does not change the amplify and a value "50" means a half loudness.</TD>
+    <TD>Amplify</TD></TR>
+  <TR>
+    <TD>Compressor</TD>
+    <TD>This attack works like a compressor. You can increase or decrease the 
+      loudness of quitely passages. The unit of the threshold is decibel (dB). 
+      The "CompressValue" describes how the sample can be changed. "2" means 
+      that the loundness of all samples in the threshold will be the half. If 
+      the value is less than "1", the compressor is an expander and will 
+      increase the loundness.</TD>
+    <TD>ThresholdDB<BR>CompressValue</TD></TR>
+  <TR>
+    <TD>CopySample</TD>
+    <TD>Is like the FlippSample attack but this attack copies the samples 
+      between the samples with a distance of FlippDist=.</TD>
+    <TD>Period<BR>FlippDist<BR>FlippCount</TD></TR>
+  <TR>
+    <TD>CutSamples</TD>
+    <TD>Removes samples from the audio file. If the value of "Remove" is 
+      "10000" then this attack removes every "10000" samples "RemoveNumber" 
+      samples periodic.</TD>
+    <TD>Remove<BR>RemoveNumber</TD></TR>
+  <TR>
+    <TD>Echo</TD>
+    <TD>Adds an echo to the sound file. The given value means the distance the 
+      echo.</TD>
+    <TD>Period</TD></TR>
+  <TR>
+    <TD>Exchange</TD>
+    <TD>Swaps two sequent samples for all samples</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>ExtraStereo</TD>
+    <TD>Increases the stereo part of the file. If the file does not have a 
+      stereo part (expl. mono), then this attack do not have an effect</TD>
+    <TD>ExtraStereofrom<BR>ExtraStereoto<BR>ExtraStereostep</TD></TR>
+  <TR>
+    <TD>FFT_HLPassQuick</TD>
+    <TD>Is like the RC-High- and RC-LowPass attack and use the same frequencys 
+      from the parameter file. FFT window size can be set with the "FFTSIZE" 
+      parameter. This attack do not fade between the FFT windows so it is 
+      possible to hear knacks</TD>
+    <TD>FFTSIZE<BR>HighPassFreq<BR>LowPassFreq</TD></TR>
+  <TR>
+    <TD>FFT_Invert</TD>
+    <TD>Inverts all samples (real and imaginary part) in the FFT room.</TD>
+    <TD>FFTSIZE</TD></TR>
+  <TR>
+    <TD>FFT_RealReverse</TD>
+    <TD>Reverses only the real part from the FFT.</TD>
+    <TD>FFTSIZE</TD></TR>
+  <TR>
+    <TD>FFT_Stat1</TD>
+    <TD>Attack .....</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>FFT_Test</TD>
+    <TD>I will do some tests on this attack. At present I swap some samples 
+      inside from FFT.</TD>
+    <TD>FFTSIZE</TD></TR>
+  <TR>
+    <TD>FlippSample</TD>
+    <TD>Swaps samples inside the sound file periodically. It swaps every 
+      "Period" "FlippCount" samples with samples which have a distance of 
+      "FlippDist".<BR>Important: Period &gt; FlipDist &gt; FlipCount! 
+    (PICTURE)</TD>
+    <TD>Period<BR>FlippCount<BR>FlippDist</TD></TR>
+  <TR>
+    <TD>Invert</TD>
+    <TD>Inverts all samples in the audiofile.</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>LSBZero</TD>
+    <TD>This attack sets all LSB to "0" (zero).</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>Normalize</TD>
+    <TD>Normalize the amplify to the maximum value.</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>Nothing</TD>
+    <TD>This attack does nothing with the audio file. The watermark sould be 
+      retrieved. If not, the watermarking algorithm can be a snake oel!</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>RC-HighPass</TD>
+    <TD>Simulates a high pass filter build with a resistance (R) and a 
+      capacitor (C).</TD>
+    <TD>HighPassFreq</TD></TR>
+  <TR>
+    <TD>RC-LowPass</TD>
+    <TD>Simulates a low pass filter like RC-HighPass.</TD>
+    <TD>LowPassFreq</TD></TR>
+  <TR>
+    <TD>Resampling</TD>
+    <TD>Changes the sample rate of the sound file.</TD>
+    <TD>SampleRate</TD></TR>
+  <TR>
+    <TD>Smooth</TD>
+    <TD>This attack smooth the samples. The seting sample value depends on the 
+      samples before and after the modify point.</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>Smooth2</TD>
+    <TD>Is like Smooth, but the neighbor samples are voted a little bit 
+      different.</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>Stat1</TD>
+    <TD>Attack .....</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>Stat2</TD>
+    <TD>Attack .....</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>VoiceRemove</TD>
+    <TD>Is the opposite to ExtraStereo. This attack removes the mono part of 
+      the file (mostly where the voice is). If the file do not have a stereo 
+      part (expl. only mono) then everything will be removed.</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>ZeroCross</TD>
+    <TD><IMG hspace=2 
+      src="Documentation for Stirmark for Audio.files/zerocross1.jpg" 
+      align=left> This attack is like a limiter. If the sample value is less the 
+      given value (threshold - blue line), all samples are set to zero (green 
+      line). 
+    <TD>ZeroCross</TD></TR>
+  <TR>
+    <TD>ZeroLength</TD>
+    <TD>If a sample value is exactly "0" (zero) then this attack inserts more 
+      samples with the value "0" (zero). (PICTURE)</TD>
+    <TD>ZeroLength</TD></TR>
+  <TR>
+    <TD>ZeroRemove</TD>
+    <TD>This attack removes all samples where the value is "0" (zero).</TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE><BR><BR>
+<HR>
+<BR><BR>
+<H3>This table shows you the signal after special attacks.</H3>The attacks are 
+used with very high parameters to see what are changed. if you use normal 
+parameters, then you can't see a differnece between the original and attackd 
+file. <BR>
+<TABLE cellPadding=2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Attack name</TH>
+    <TH>changes</TH></TR>
+  <TR>
+    <TD>original</TD>
+    <TD><IMG hspace=2 
+      src="Documentation for Stirmark for Audio.files/original.jpg" 
+    align=left></TD></TR>
+  <TR>
+    <TD>invert</TD>
+    <TD><IMG hspace=2 
+      src="Documentation for Stirmark for Audio.files/invert.jpg" 
+  align=left></TD></TR>
+  <TR>
+    <TD>exchange</TD>
+    <TD><IMG hspace=2 
+      src="Documentation for Stirmark for Audio.files/exchange.jpg" 
+    align=left></TD></TR>
+  <TR>
+    <TD>normalize</TD>
+    <TD><IMG hspace=2 
+      src="Documentation for Stirmark for Audio.files/normalize.jpg" 
+    align=left></TD></TR>
+  <TR>
+    <TD>resampling</TD>
+    <TD><IMG hspace=2 
+      src="Documentation for Stirmark for Audio.files/resampling.jpg" 
+    align=left></TD></TR>
+  <TR>
+    <TD>zerocross</TD>
+    <TD><IMG hspace=2 
+      src="Documentation for Stirmark for Audio.files/zerocross.jpg" 
+    align=left></TD></TR>
+  <TR>
+    <TD>zerolegth</TD>
+    <TD><IMG hspace=2 
+      src="Documentation for Stirmark for Audio.files/zerolength.jpg" 
+    align=left></TD></TR>
+  <TR>
+    <TD>zerocremove</TD>
+    <TD><IMG hspace=2 
+      src="Documentation for Stirmark for Audio.files/zeroremove.jpg" 
+    align=left></TD></TR>
+  <TR>
+    <TD>addbrumm</TD>
+    <TD><IMG hspace=2 
+      src="Documentation for Stirmark for Audio.files/addbrumm.jpg" 
+    align=left></TD></TR></TBODY></TABLE><BR><BR>
+<HR>
+<BR>
+<H3>This command line parameters are possible:</H3><BR>usage: stirmarkaudio 
+[option(s)]<BR>supported options [default in brackets]:<BR>
+<TABLE cellPadding=2 border=1>
+  <TBODY>
+  <TR>
+    <TH>&nbsp;&nbsp;&nbsp;parameter&nbsp;&nbsp;&nbsp;</TH>
+    <TH>Description</TH></TR>
+  <TR>
+    <TD>-h, -H, -?</TD>
+    <TD>help screen</TD></TR>
+  <TR>
+    <TD>-p &lt;filename&gt;</TD>
+    <TD>name of the parameterfile [parameter.cfg]</TD></TR>
+  <TR>
+    <TD>-n</TD>
+    <TD>do not use a parameterfile, use internal default values need also the 
+      parameter -i &lt;filename&gt; and -w &lt;filename&gt;</TD></TR>
+  <TR>
+    <TD>-v</TD>
+    <TD>be verbose</TD></TR>
+  <TR>
+    <TD>-q</TD>
+    <TD>quite (don't print attacks and other messages)</TD></TR>
+  <TR>
+    <TD>-i &lt;filename&gt;</TD>
+    <TD>set the name of the input file</TD></TR>
+  <TR>
+    <TD>-w &lt;filename&gt;</TD>
+    <TD>write the attacked files to the output file (&lt;filename&gt; without 
+      suffix)</TD></TR></TBODY></TABLE><BR>
+<H3>example:</H3><B>./stirmarkaudio</B><BR>Reads all needed parameter from the 
+file "parameter.cfg" which must be in the same directory and then runs all 
+attacks<BR><BR><B>./stirmarkaudio -n -i input.wav -w output</B><BR>Run the 
+program with default settings and does not care about anything in the 
+parameter.cfg file. The input file, which is under attack is called "input.wav" 
+and the attacked output files are saved under output_attack 
+name.wav.<BR><BR><B>./stirmarkaudio -i input.wav -p newconf.cfg</B><BR>Reads all 
+needed parameter from the parameter file "newconf.cfg" and uses as input file 
+"input.wav".<BR><BR>I will be glad if you found a bug and you send me an email. 
+<BR>
+<HR>
+<BR>
+<ADDRESS><A href="mailto:alang@iti.cs.uni-magdeburg.de">Andreas 
+Lang</A></ADDRESS><!-- Created: Wed Jan 30 12:00:38 CET 2002 --><!-- hhmts start -->Last 
+modified: Tue Feb 12 12:50:59 CET 2002 <!-- hhmts end --></BODY></HTML>

@@ -1,0 +1,43 @@
+%Nframe_In_Buffer = 1;
+Npad_prefix = 512;
+Npad_suffix = 512;
+
+% default parameter values
+% watermark_type = 'detectable';
+N = 2^13;
+M = 2^1;
+mod_type = 'ccsk';
+polar = 'bi';        
+code_type = 'none';  
+map_order = 'gray';
+orthogonal_pn = 1;
+
+ss_type = 'ss';
+psychoacoustic_enable = 1;
+nmr_gain = 0;
+mpeg_param = struct('Layer', 1, 'Model', 1, 'Bitrate', 128);
+mask_opt = struct('SMRmin', 0, 'Draw','');
+matched_filter_enable = 0;
+
+
+adapt = 0;
+target_snr = 20;
+
+Awmk = 0.01;
+filter_type = 'bpf';
+fcuts = [3,4]*1e3;
+
+lambda = 1;
+
+extract_filter_type = 'hpf';
+extract_fcuts = [2, 3]*1e3;  
+
+% for sync
+default_max_acqtime = 1;
+default_max_failtime = 3;
+default_max_sync_jitter =20;
+default_pfa = 0.01;
+
+xcorr_overlap_enable = 1;
+
+Nframe_SoundDelay = 2;

@@ -1,0 +1,16 @@
+wmk_core_ccsk_v2£º
+N = 2^13;
+
+
+realtime_embedder_gui£º
+nfft = 512;
+Npad_Prefix = 512;
+Npad_Suffix = 512;
+
+
+noise_masking_v2£º
+FFT_SIZE = 512;
+Syn_Td = 481;               
+Lblk = 384;
+
+Buffer_Shift = 64;

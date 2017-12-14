@@ -1,0 +1,7 @@
+[y,fs]=audioread('3LRgain5-4096hp2-3.wav');
+N=10;
+len=8192;
+for i=1:floor(length(y)/(len*N))
+y1(len*(i-1)+1:len*i,:) = y(len*N*(i-1)+1:len*N*(i-1)+len,:) + y(len*N*(i-1)+len+1:len*N*(i-1)+len*2,:) + y(len*N*(i-1)+len*2+1:len*N*(i-1)+len*3,:)  + y(len*N*(i-1)+len*3+1:len*N*(i-1)+len*4,:)  + y(len*N*(i-1)+len*4+1:len*N*(i-1)+len*5,:)  + y(len*N*(i-1)+len*5+1:len*N*(i-1)+len*6,:)  + y(len*N*(i-1)+len*6+1:len*N*(i-1)+len*7,:)  + y(len*N*(i-1)+len*7+1:len*N*(i-1)+len*8,:)  + y(len*N*(i-1)+len*8+1:len*N*(i-1)+len*9,:)  + y(len*N*(i-1)+len*9+1:len*N*(i-1)+len*10,:) ;
+end
+audiowrite('y1gain3.wav',y1,48000,'BitsPerSample',16);
