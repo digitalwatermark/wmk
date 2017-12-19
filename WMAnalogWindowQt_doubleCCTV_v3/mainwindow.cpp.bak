@@ -346,11 +346,11 @@ void MainWindow::on_SmpRateComboBox_activated(int index)//采样率选择下拉�
     SmpRate = index;
   //  QString PNfilePath = "hhhhhhhh";
    // QMessageBox::warning(0,"PATH",PNfilePath,QMessageBox::Yes);
-    if(SmpRate == 0)
+    if(SmpRate == 1)
     {
         table_init48(MODSEL,Param);
     }
-    else if(SmpRate == 1)
+    else if(SmpRate == 2)
     {
         table_init441(MODSEL,Param);
     }
