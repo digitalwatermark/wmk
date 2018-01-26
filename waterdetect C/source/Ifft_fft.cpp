@@ -43,7 +43,7 @@ for(i=0;i<len;i++)  {data[i].real = inI[i];data[i].image=inQ[i];}
 
     GroupNum =reallen/2;
     CellNum =1;
-		start = clock();  
+	//	start = clock();  
     	
     for(i=0;i<14;i++)	//M级
     {       
@@ -53,7 +53,7 @@ for(i=0;i<len;i++)  {data[i].real = inI[i];data[i].image=inQ[i];}
         {
             for(k=0;k<CellNum;k++)	//每个碟形的运算
             {
-                pos1 = j*CellNum*2 ;
+                pos1 = j*CellNum*2+k ;
                 pos2 = pos1 + CellNum;
 
                 mul = ComMul(data[pos2],w[k*GroupNum]);		//每个碟形的乘法运算
@@ -71,9 +71,9 @@ for(i=0;i<len;i++)  {data[i].real = inI[i];data[i].image=inQ[i];}
   
     }
 
-		end = clock();
+//		end = clock();
 	
-	        printf("The time was: %f\n", (double)(end-start)/1000 ); //此处为检测结束的时间点win下为31ms
+	   //     printf("The time was: %f\n", (double)(end-start)/1000 ); //此处为检测结束的时间点win下为31ms
 	
 	free(w);
 	free(inQ);
