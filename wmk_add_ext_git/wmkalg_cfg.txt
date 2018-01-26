@@ -30,7 +30,7 @@ fcuts = [3,4]*1e3;
 lambda = 1;
 
 extract_filter_type = 'hpf';
-extract_fcuts = [2, 3]*1e3;  
+extract_fcuts = [3, 4]*1e3;  
 
 % for sync
 default_max_acqtime = 2;

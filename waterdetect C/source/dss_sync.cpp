@@ -96,7 +96,7 @@ void dss_sync()
 					Count_Acq = Max_Acqtime;
 
 				    Sync_State=2;
-							printf("Max_Rxpn_AbsShiftAdd=%3f\n",Max_Rxpn_AbsShiftAdd);
+							//printf("Max_Rxpn_AbsShiftAdd=%3f\n",Max_Rxpn_AbsShiftAdd);
 
 					
 

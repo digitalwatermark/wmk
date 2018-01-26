@@ -21,6 +21,7 @@ extern double PNinput[FRAMEL];
 //	clock_t start, end;
 
 //FILE * fpdecteframe = fopen("./test/frameinfor.txt","wt");
+extern int successcount;
 
 void wmk_extrac()
 {
@@ -37,19 +38,17 @@ void wmk_extrac()
 		
 		process_acquireddata();
 	}
-	else
-		
-		if(State_Switch.Sync_State==2)
-		{		
+	else if(State_Switch.Sync_State==2)
+	{		
 			
 		//	end = clock();
 	
 	     //   printf("The time was: %f\n", (double)(end-start)/1000 ); //此处为检测结束的时间点win下为31ms
-			
-			printf("http//:www.taobao.com\n");
+			successcount++;
+			printf("success->%d\n",successcount);
 
 			State_Switch.Sync_State=1;
 			
-		}
+	}
 
 }

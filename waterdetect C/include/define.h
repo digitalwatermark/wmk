@@ -18,13 +18,13 @@
 
 #define FRAMEL 8192
 #define Max_Acqtime 2
-#define Max_Sync_Jitter 8
+#define Max_Sync_Jitter 20
 
 
 #define min(a,b)  a>b?b:a
 #define ESP 0.0000000000000002220446049250313
 
-
+#define OVERTIME 10
 
 struct _State
 {
