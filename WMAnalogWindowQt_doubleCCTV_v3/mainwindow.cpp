@@ -62,11 +62,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->NAMEComboBox->addItem("CCTV");
 
-    ui->GSlider->setRange(1,100);
-    ui->GSlider->setTickInterval(100);
+    ui->GSlider->setRange(1,800);
+    ui->GSlider->setTickInterval(800);
     ui->GSlider->setOrientation(Qt::Vertical);
-    ui->GSlider->setValue(100);
-    SniG = 0.1;
+    ui->GSlider->setValue(800);
+    SniG = 0.8;
     ui->ASFminSlider->setRange(0,31);
     ui->ASFminSlider->setTickInterval(32);
     ui->ASFminSlider->setOrientation(Qt::Vertical);

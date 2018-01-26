@@ -12,23 +12,23 @@ void data_convert()
 		
 		if(musicdataL[i]>=32768)
 		{
-			FrameL[i] = (musicdataL[i] - 65536)/32768.0;
+            FrameL[i] = (musicdataL[i] - 32768)/32767.0;
 		}
 			
 		else
 		{
-			FrameL[i] = musicdataL[i]/32768.0;
+            FrameL[i] = musicdataL[i]/32767.0;
 			
 		}
 
 		if(musicdataR[i]>=32768)
 		{
-			FrameR[i] = (musicdataR[i] - 65536)/32768.0;
+            FrameR[i] = (musicdataR[i] - 32768)/32767.0;
 		}
 			
 		else
 		{
-			FrameR[i] = musicdataR[i]/32768.0;
+            FrameR[i] = musicdataR[i]/32767.0;
 			
 		}
 	}

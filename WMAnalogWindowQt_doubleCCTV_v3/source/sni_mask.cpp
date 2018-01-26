@@ -18,7 +18,7 @@ int    ASFmax;
             else
             {
                 if ((i>ASFmin)&&(i<ASFmax))
-                    smrbin[i*12+j]= 0.5*pow(10,smr[i]/10.0);
+                    smrbin[i*12+j]=SniG*pow(10,smr[i]/10.0);
                 else
                     smrbin[i*12+j]= pow(10,smr[i]/10.0);
             }

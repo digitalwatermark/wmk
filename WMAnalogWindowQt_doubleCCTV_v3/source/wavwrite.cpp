@@ -14,7 +14,7 @@ void wavwrite(int looptime, int last)
     int writepoint =0;// body_start_point;
     double vmaxL,vmaxR,absvL,absvR;
 
-    vmaxL =fabs(fSigLwmk[writepoint]);
+  /*  vmaxL =fabs(fSigLwmk[writepoint]);
     vmaxR =fabs(fSigRwmk[writepoint]);
 
     for(i=writepoint+1;i<looptime*8192+last/2;i++)
@@ -28,13 +28,13 @@ void wavwrite(int looptime, int last)
             vmaxR = fabs(fSigRwmk[i]);
         else
             vmaxR = vmaxR;
-    }
+    }*/
 
     for( i=writepoint;i<looptime*8192+last/2;i++)
     {
-        douttmpL=int( (fSigLwmk[i]/vmaxL) *32768.0+0.5);
+        douttmpL=int( (fSigLwmk[i]) *32767.0);
         //������
-        if (douttmpL < -32768)
+       if (douttmpL < -32768)
             dout = -32768;
         else if (douttmpL >32767)
             dout = 32767;
@@ -44,7 +44,7 @@ void wavwrite(int looptime, int last)
         fwrite(&dout,2,1,music_with_wm);
         fflush(music_with_wm);
 //      ������
-        douttmpR=int( (fSigRwmk[i]/vmaxR) *32768.0+0.5);
+        douttmpR=int( (fSigRwmk[i]) *32767.0);
         if (douttmpR < -32768)
             dout = -32768;
         else if (douttmpR >32767)

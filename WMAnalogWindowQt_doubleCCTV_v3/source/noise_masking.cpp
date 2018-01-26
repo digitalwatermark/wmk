@@ -63,6 +63,7 @@ void noise_masking(_table *Param)
 		for( i=0; i<FRAMEL;i++)
 		{
             SigRwmk[i] = pow(10,(nmr_gain/20.0))*onoise[i+Npad_Prefix]+SigBufR[i+Npad_Prefix];
+           // SigRwmk[i] =SigBufR[i+Npad_Prefix];
         }
 
 
