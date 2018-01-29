@@ -1,7 +1,7 @@
 #include "user.h"
 
 
-  _State State_Switch;
+_State State_Switch;
 
 FILE   *WaveRdFp;
 
@@ -20,6 +20,8 @@ double PNinput[FRAMEL];
 int successcount;
 
 Complex *fft_pn = (Complex*)malloc(16384*sizeof(Complex));
+
+long wav_start_position;
 
 void main()
 {
@@ -65,7 +67,7 @@ void main()
 		}
 		else
 		{
-			fseek(WaveRdFp,44L,0);
+			fseek(WaveRdFp,wav_start_position,0);
 			successcount=0;
 	
 			printf("**********wave_wave_wave_again*******************\n");
