@@ -37,7 +37,7 @@ target_snr = 46;
 
 
 extract_filter_type = 'hpf';
-  extract_fcuts = [3, 4]*1e3;
+  extract_fcuts = [2, 3]*1e3;
 %  extract_fcuts = [2, 3, 15, 17]*1e3;  
 
 
@@ -89,7 +89,7 @@ if strcmpi(extract_filter_type, 'lpf')
 elseif strcmpi(extract_filter_type, 'bpf')
      extract_fcuts = [2, 3, 15, 17]*1e3;          % BPF
 elseif strcmpi(extract_filter_type, 'hpf')
-    extract_fcuts = [3, 4]*1e3;                        % HPF
+    extract_fcuts = [2, 3]*1e3;                        % HPF
 elseif strcmpi(extract_filter_type, 'apf')      % All Pass Filter
 else
     error('Filter type must be ''lpf'', ''bpf'', ''hpf'', or ''apf''.');
@@ -132,7 +132,7 @@ if ~isequal(Extract_filter_type_wmk_core_ccsk_v2, extract_filter_type) ...
         || ~isequal(Extract_fcuts_wmk_core_ccsk_v2, extract_fcuts)
     if  ~strcmpi(extract_filter_type, 'apf')
         Astop = -20;                 % stopband attenuation in dB
-        Rpass = 0.05;              % passband ripple
+        Rpass = 0.01;              % passband ripple
         extract_h = kaiser_fir(extract_fcuts, fs, Rpass, Astop, extract_filter_type);
 %         [a,freq] = freqz(extract_h);
         %figure; 

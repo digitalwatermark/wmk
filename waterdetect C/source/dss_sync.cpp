@@ -28,7 +28,7 @@ void dss_sync()
 	int Count_Acq;
 	int last_sync_pos;
 	int Sync_State;
-	double Threshold = 0.047;
+	double Threshold = 0.0465;
 
      _corrstr corrvalue;
 
