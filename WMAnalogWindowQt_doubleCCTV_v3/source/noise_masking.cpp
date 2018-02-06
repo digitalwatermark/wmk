@@ -40,8 +40,8 @@ void noise_masking(_table *Param)
         for(i=0; i<FRAMEL;i++)
 		{
             plotx[i] = i+1;
-            pny[i] = pow(10,(nmr_gain/20.0))*onoise[i+Npad_Prefix];
-            musicy[i] = SigBufL[i+Npad_Prefix];
+            pny[i] = pow(10,(nmr_gain/20.0))*onoise[i+2*Npad_Prefix];
+            musicy[i] = SigBufL[i+2*Npad_Prefix];
             SigLwmk[i] = pny[i] + musicy[i];
 		}
 	
@@ -62,8 +62,8 @@ void noise_masking(_table *Param)
 
 		for( i=0; i<FRAMEL;i++)
 		{
-            SigRwmk[i] = pow(10,(nmr_gain/20.0))*onoise[i+Npad_Prefix]+SigBufR[i+Npad_Prefix];
-           // SigRwmk[i] =SigBufR[i+Npad_Prefix];
+           SigRwmk[i] = pow(10,(nmr_gain/20.0))*onoise[i+2*Npad_Prefix]+SigBufR[i+2*Npad_Prefix];
+            //SigRwmk[i] =SigBufR[i+2*Npad_Prefix];
         }
 
 

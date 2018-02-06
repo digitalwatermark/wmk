@@ -13,8 +13,8 @@ void wmk_gen(_table *Param)
         data_convert();
     }
 
-	frame_perfix();					//整数倍分帧
+    frame_perfix();					//整数倍分帧
 		
-	noise_masking(Param);
+    noise_masking(Param);
 
 }

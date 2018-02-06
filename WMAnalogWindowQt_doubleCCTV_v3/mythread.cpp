@@ -19,6 +19,8 @@ extern  double SigRwmk[FRAMEL];
 extern  double fSigLwmk[FRAMEL*FCNT];
 extern  double fSigRwmk[FRAMEL*FCNT];
 extern  char   *pnopenname;
+extern double FrameL[FRAMEL];
+extern double FrameR[FRAMEL];
 
 extern    int     one_pn_frame;
 extern    char    *pnopenname_array[PN_NUM];
@@ -35,7 +37,7 @@ MyThread::~MyThread()
 
 void MyThread::run()
 {
-    int j;
+    int i, j,pcmlen;
     pnopenname = pnopenname_array[1];
     PnGen(inoise);
 
@@ -59,16 +61,27 @@ void MyThread::run()
                 }
             }
 
-            wmk_gen(Param);
+           wmk_gen(Param);
+
+           /* for(i=0;i<FRAMEL;i++)
+            {
+               SigLwmk[i] = FrameL[i];
+               SigRwmk[i] = FrameR[i];
+
+            }*/
 
             Param->body_start_point =0;
             Param->bodylen = Param->last/2+Npad_Prefix;
 
-            for(j=0; j<FRAMEL; j++)
+       /*     for(j=0; j<FRAMEL; j++)
             {
                 fSigLwmk[loopcount*FRAMEL+j] = SigLwmk[j];
                 fSigRwmk[loopcount*FRAMEL+j] = SigRwmk[j];
-            }
+            }*/
+
+            pcmlen =Param->last/2;
+
+               wavwrite(Param->looptime, pcmlen);
         }
         else
         {
@@ -82,18 +95,29 @@ void MyThread::run()
 
             wmk_gen(Param);
 
+           /* for(i=0;i<FRAMEL;i++)
+            {
+               SigLwmk[i] = FrameL[i];
+               SigRwmk[i] = FrameR[i];
+
+            }*/
+
+
             Param->body_start_point= 0;
             Param->bodylen = FRAMEL;
 
-            for(j=0; j<FRAMEL; j++)
+       /*     for(j=0; j<FRAMEL; j++)
             {
                 fSigLwmk[loopcount*FRAMEL+j] = SigLwmk[j];
                 fSigRwmk[loopcount*FRAMEL+j] = SigRwmk[j];
-            }
+            }*/
+           pcmlen = 8192;
+
+               wavwrite(Param->looptime,pcmlen);
         }
 
     }//end of looptime
-    wavwrite(Param->looptime, Param->last);
+//    wavwrite(Param->looptime, Param->last);
     fclose(music_with_wm);
     fclose(WaveRdFp);
 
