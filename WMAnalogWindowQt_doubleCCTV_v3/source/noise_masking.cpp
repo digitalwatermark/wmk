@@ -17,6 +17,8 @@ extern double plotx[FRAMEL];
 extern double pny[FRAMEL];
 extern double musicy[FRAMEL];
 
+extern    bool      WMAdd;
+
 void noise_masking(_table *Param)
 {
 
@@ -42,7 +44,12 @@ void noise_masking(_table *Param)
             plotx[i] = i+1;
             pny[i] = pow(10,(nmr_gain/20.0))*onoise[i+2*Npad_Prefix];
             musicy[i] = SigBufL[i+2*Npad_Prefix];
-            SigLwmk[i] = pny[i] + musicy[i];
+            if(WMAdd)
+            {
+                SigLwmk[i] = pny[i] + musicy[i];
+            }else{
+                SigLwmk[i] = musicy[i];
+            }
 		}
 	
         //”“…˘µ¿
@@ -62,8 +69,11 @@ void noise_masking(_table *Param)
 
 		for( i=0; i<FRAMEL;i++)
 		{
-           SigRwmk[i] = pow(10,(nmr_gain/20.0))*onoise[i+2*Npad_Prefix]+SigBufR[i+2*Npad_Prefix];
-            //SigRwmk[i] =SigBufR[i+2*Npad_Prefix];
+            if(WMAdd){
+                SigRwmk[i] = pow(10,(nmr_gain/20.0))*onoise[i+2*Npad_Prefix]+SigBufR[i+2*Npad_Prefix];
+            }else{
+                SigRwmk[i] = SigBufR[i+2*Npad_Prefix];
+            }
         }
 
 

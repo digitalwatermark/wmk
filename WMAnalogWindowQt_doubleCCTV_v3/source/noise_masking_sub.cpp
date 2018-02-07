@@ -19,7 +19,6 @@ double SMRsb[32];
 double smrbuffer[448];
 
 
-
 void noise_masking_sub(_table *Param)
 {
 	double scf_bin[384];

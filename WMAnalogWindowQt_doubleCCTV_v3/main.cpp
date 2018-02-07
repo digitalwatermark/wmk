@@ -39,6 +39,8 @@ int    one_pn_frame;//每个pn嵌入的帧数
 char   *pnopenname_array[PN_NUM];
 bool   ifisrunning;
 
+long wavendlen;
+
 //==========================================================================================================
 
 WAVEFORMATEX  m_soundFormat;//声音格式

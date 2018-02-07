@@ -26,6 +26,8 @@ extern    int     one_pn_frame;
 extern    char    *pnopenname_array[PN_NUM];
 extern    bool    ifisrunning;
 
+extern long wavendlen;
+
 MyThread::MyThread()
 : QThread()
 {
@@ -118,6 +120,12 @@ void MyThread::run()
 
     }//end of looptime
 //    wavwrite(Param->looptime, Param->last);
+    for(i=0;i<wavendlen;i++)
+    {
+        j=fgetc(WaveRdFp);
+        fwrite(&j,1,1,music_with_wm);
+    }
+
     fclose(music_with_wm);
     fclose(WaveRdFp);
 

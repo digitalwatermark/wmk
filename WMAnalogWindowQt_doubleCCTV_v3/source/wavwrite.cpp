@@ -1,6 +1,5 @@
 #include "user.h"
 
-
 extern FILE *music_with_wm;
 
 extern  double fSigLwmk[FRAMEL*FCNT];
