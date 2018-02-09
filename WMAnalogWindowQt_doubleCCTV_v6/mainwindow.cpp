@@ -317,11 +317,11 @@ void MainWindow::timerEvent( QTimerEvent * )//曲线图实时刷新
 void MainWindow::on_SmpRateComboBox_activated(int index)//采样率选择下拉菜单
 {
     SmpRate = index;
-    if(SmpRate == 1)
+    if(SmpRate == 0)
     {
         table_init48(MODSEL,Param);
     }
-    else if(SmpRate == 2)
+    else if(SmpRate == 1)
     {
         table_init441(MODSEL,Param);
     }
