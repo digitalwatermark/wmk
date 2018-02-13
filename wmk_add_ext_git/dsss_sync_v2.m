@@ -69,11 +69,11 @@ else
     elseif current_start_index+N-1+Max_Sync_Jitter>length(xbuff)
         % duplicate one frame for slow sampling clock
 %         current_start_index = current_start_index-N;
-        disp('Buffer overflows. Sync lost.');
-        state.Count_Acq = Count_Acq;
+         disp('Buffer overflows. Sync lost.');
+        state.Count_Acq = 0;
         state.Sync_Pos = NaN;
         state.Next_Start_Buffer_Index = 1;
-        Sync_State = State_Supported{2};
+        state.Sync_State = State_Supported{2};
     end
     
     if strcmpi(state.Sync_State, State_Supported{2})

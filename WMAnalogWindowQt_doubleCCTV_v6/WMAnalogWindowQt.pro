@@ -79,6 +79,6 @@ RC_FILE = abslogo.rc
 
 CONFIG += qwt
 DEFINES += QT_DLL QWT_DLL
-LIBS += -L$$PWD/lib/ -l qwtd
-#LIBS += -L$$PWD/lib/ -l qwt
-INCLUDEPATH += E:/Qt/Qt5.6.0/5.6/mingw49_32/include/QWT
+#LIBS += -L$$PWD/lib/ -l qwtd
+LIBS += -L$$PWD/lib/ -l qwt
+INCLUDEPATH += H:/qt/setup/5.6/mingw49_32/include/QWT

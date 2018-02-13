@@ -37,7 +37,7 @@ target_snr = 46;
 
 
 extract_filter_type = 'hpf';
-  extract_fcuts = [2, 3]*1e3;
+  extract_fcuts = [10, 12]*1e3;
 %  extract_fcuts = [2, 3, 15, 17]*1e3;  
 
 
