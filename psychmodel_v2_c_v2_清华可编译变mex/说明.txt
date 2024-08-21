@@ -1,8 +1,0 @@
-使用main进入添加MUSICIN.C文件，不使用-12
-使用mex进入添加SMRv2_MPEG1_mex.c文件，使用-12
-
-减12位置在函数threshold中：
-if(bit_rate<96)
-		ltg[k].x = add_db(ltg[k].hear, ltg[k].x);
-    else 
-		ltg[k].x = add_db(ltg[k].hear-12.0, ltg[k].x);
